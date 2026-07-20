@@ -80,3 +80,45 @@ WHERE type='Movie'
 SELECT *
 FROM RankedMovies
 WHERE rn=1;
+
+-- Finding the growth of genre over years
+SELECT
+    release_year,
+    listed_in,
+    COUNT(*) AS total_titles
+FROM netflix
+WHERE release_year >= 2015
+GROUP BY release_year, listed_in
+ORDER BY release_year, total_titles DESC;
+
+-- Growth surge of Drama
+SELECT
+    release_year,
+    COUNT(*) AS drama_titles
+FROM netflix
+WHERE listed_in LIKE '%Dramas%'
+GROUP BY release_year
+ORDER BY release_year;
+
+-- Count Titles by Countries
+SELECT
+    country,
+    COUNT(*) AS total_titles
+FROM netflix
+WHERE country IS NOT NULL
+GROUP BY country
+ORDER BY total_titles DESC;
+
+-- Calculate the % of total titles
+SELECT
+ROUND(
+(
+SELECT COUNT(*)
+FROM netflix
+WHERE country LIKE '%United States%'
+   OR country LIKE '%Japan%'
+)
+*100.0/
+(SELECT COUNT(*) FROM netflix),
+2
+) AS percentage;
