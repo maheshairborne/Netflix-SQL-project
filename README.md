@@ -88,6 +88,14 @@ Before performing the analysis:
 
 ### 11. Find one movie from each release year using a Common Table Expression (CTE) and Window Function.
 
+### 12. Analyze the growth of Netflix genres over the years (2015 onwards).
+
+### 13. Track the yearly growth of Drama content on Netflix.
+
+### 14. Find the Top countries contributing the most Netflix titles.
+
+### 15. Calculate the percentage of Netflix titles produced by the United States and Japan combined.
+
 ---
 
 ## 📈 Key Insights
